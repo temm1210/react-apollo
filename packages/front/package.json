@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/react-common": "^3.0.1",
     "@apollo/react-hooks": "^3.0.1",
+    "@apollo/react-ssr": "^3.0.1",
     "@babel/core": "7.4.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
