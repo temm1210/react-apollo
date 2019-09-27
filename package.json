@@ -1,0 +1,17 @@
+{
+  "name": "club",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "STW",
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ],
+    "nohoist": [
+      "**/react-scripts",
+      "**/react-scripts/**"
+    ]
+  },
+  "private": true
+}

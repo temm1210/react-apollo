@@ -1,0 +1,7 @@
+**/node_modules
+
+# for eslintignore front folder
+packages/front/scripts
+packages/front/config
+# packages/front/src/serviceWorker.js
+

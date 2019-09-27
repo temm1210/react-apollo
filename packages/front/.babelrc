@@ -1,0 +1,14 @@
+{
+  "presets": ["react-app"],
+  "plugins": [
+    "@loadable/babel-plugin",
+    [
+      "babel-plugin-styled-components",
+      {
+        "fileName": false,
+        "displayName": false,
+        "pure": true
+      }
+    ]
+  ]
+}
