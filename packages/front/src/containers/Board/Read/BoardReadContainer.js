@@ -54,8 +54,6 @@ const BoardReadContainer = withRouter(({ id, history }) => {
 
   // handle click
   const handleDeleteClick = () => {
-    console.log("Delete click:");
-
     if (typeof window !== "undefined" && window.confirm("삭제 하시겠습니까?")) {
       deleteBoard();
     }
