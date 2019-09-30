@@ -45,10 +45,20 @@ function Editor({ id, value, focus, readOnly, placeholder, onChange }) {
 
   useEffect(() => {
     if (focus) myEditor.current.focus();
+
+    const element = document.querySelector(".ql-container");
+    console.log("element.scrollTop:", element.scrollTop);
   });
+
   const handleKeyDown = e => {
     if (e.keyCode === 13) {
-      document.querySelector(".ql-container").scrollTo(0, 200000);
+      const element = document.querySelector(".ql-editor");
+      console.log("element.scrollTop:", element.scroll);
+
+      // element.scrollTo(0, scrollY);
+      // const scrollY = document.querySelector(".ql-container").scrollTop;
+      // console.log("scrollY:", scrollY);
+      // document.querySelector(".ql-container").scrollTo(0, scrollY);
       // document.querySelector(".ql-editor").scrollTo(0, 200000);
     }
   };
@@ -66,7 +76,7 @@ function Editor({ id, value, focus, readOnly, placeholder, onChange }) {
         // maxWidth: "900px",
         lineHeight: "1.58",
       }}
-      onKeyDown={handleKeyDown}
+      // onKeyDown={handleKeyDown}
       ref={myEditor}
       value={value}
       readOnly={readOnly}

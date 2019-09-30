@@ -19,13 +19,16 @@
   font-size: 22px;
   line-height: 1.9;
   letter-spacing: 0.01em;
-  overflow: initial;
-  width: 90%;
-  max-width: 850px;
+  overflow: auto;
   margin: 0 auto;
   /* padding: 0 10rem; */
   /* overflow: hidden; */
   /* height: 80vh; */
+}
+
+.ql-editor p {
+  margin: 0 auto;
+  max-width: 850px;
 }
 
 .ql-editor.ql-blank::before {
