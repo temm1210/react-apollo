@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useRef, useEffect } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import PropTypes from "prop-types";
@@ -40,7 +38,7 @@ const imageUpload = {
   },
 };
 
-function Editor({ id, value, focus, readOnly, placeholder, onChange }) {
+function Editor({ id, value, focus, readOnly, onChange }) {
   const myEditor = useRef(null);
 
   useEffect(() => {
@@ -50,33 +48,17 @@ function Editor({ id, value, focus, readOnly, placeholder, onChange }) {
     console.log("element.scrollTop:", element.scrollTop);
   });
 
-  const handleKeyDown = e => {
-    if (e.keyCode === 13) {
-      const element = document.querySelector(".ql-editor");
-      console.log("element.scrollTop:", element.scroll);
-
-      // element.scrollTo(0, scrollY);
-      // const scrollY = document.querySelector(".ql-container").scrollTop;
-      // console.log("scrollY:", scrollY);
-      // document.querySelector(".ql-container").scrollTo(0, scrollY);
-      // document.querySelector(".ql-editor").scrollTo(0, 200000);
-    }
-  };
-
   return (
     <ReactQuill
       id={id}
       className="myEditor"
-      placeholder={placeholder}
       style={{
         height: "70vh",
         width: "100%",
         margin: "0 auto",
         paddingBottom: "2rem",
-        // maxWidth: "900px",
         lineHeight: "1.58",
       }}
-      // onKeyDown={handleKeyDown}
       ref={myEditor}
       value={value}
       readOnly={readOnly}
@@ -96,8 +78,6 @@ Editor.defaultProps = {
   id: "myEditor",
   value: "",
   readOnly: false,
-  placeholder:
-    "내용을 입력하세요. 제목은 Submit버튼을 클릭후 작성할 수 있습니다.",
   onChange: null,
   focus: false,
 };
@@ -107,7 +87,6 @@ Editor.propTypes = {
   id: PropTypes.string,
   value: PropTypes.string,
   readOnly: PropTypes.bool,
-  placeholder: PropTypes.string,
   onChange: PropTypes.func,
 };
 
