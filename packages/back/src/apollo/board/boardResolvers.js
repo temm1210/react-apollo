@@ -64,8 +64,8 @@ export default {
       { id, board },
       { dataSources: { boardAPI } },
     ) => {
-      console.log("id:", id);
-      console.log("board:", board);
+      const result = await boardAPI.updateBoard(id, board);
+      return !!result;
     },
   },
 };
