@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/react-common": "^3.0.1",
     "@apollo/react-hooks": "^3.0.1",
     "@apollo/react-ssr": "^3.0.1",
     "@babel/core": "7.4.3",
