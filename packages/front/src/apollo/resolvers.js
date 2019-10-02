@@ -1,7 +1,1 @@
-export default {
-  Query: {
-    test: () => {
-      return "test";
-    },
-  },
-};
+export default {};
