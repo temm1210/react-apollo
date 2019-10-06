@@ -21,11 +21,11 @@ import queries from "./iniQueries";
         process.exit(0);
       });
     } catch (error) {
-      console.error("Query Error");
+      console.error(`Query Error:::${error}`);
       throw error;
     }
   } catch (err) {
-    console.error("DB Error");
+    console.error(`DB Error:::::${err}`);
     throw err;
   }
 })();
