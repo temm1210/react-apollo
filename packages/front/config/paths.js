@@ -70,7 +70,7 @@ module.exports = {
   dotenv: resolveApp(".env"),
   rootDotenv: resolveApp("../../.env"),
   appPath: resolveApp("."),
-  appBuild: resolveApp("../back/src/build"),
+  appBuild: resolveApp("src/build"),
   appPublic: resolveApp("public"),
   appHtml: resolveApp("public/index.html"),
   appIndexJs: resolveModule(resolveApp, "src/index"),
