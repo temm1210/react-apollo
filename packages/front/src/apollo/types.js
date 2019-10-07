@@ -17,6 +17,5 @@ export default gql`
   extend type Query {
     # getLoginUserCli: User!
     user: User!
-    test: String
   }
 `;
