@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-
 import { loadableReady } from "@loadable/component";
+// common여기다 쓰면 에러발생. 버그있음
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import apolloClient, { init } from "apollo";
