@@ -1,4 +1,4 @@
-import { ForbiddenError } from "apollo-server-express";
+// import { ForbiddenError } from "apollo-server-express";
 import { userFields } from "db/schemas";
 import sendMail from "./sendMail";
 import resolver from "./schemaName";
@@ -50,10 +50,6 @@ export default {
       const { email: userEmail } = user;
 
       return getAccessRefreshToken(userEmail);
-    },
-    test: async (_, __, { user }) => {
-      if (!user) throw new ForbiddenError("you have to login");
-      return "return Test";
     },
   },
 
