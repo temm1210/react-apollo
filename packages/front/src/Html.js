@@ -17,14 +17,14 @@ function Html({ content, tags, styled, state }) {
         ${styles}
     `;
 
-  console.log("tags:", tags);
+  const body = content + tags.scripts;
 
   return (
     <html lang="en">
       <head dangerouslySetInnerHTML={{ __html: head }} />
       <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
+        <div id="root" dangerouslySetInnerHTML={{ __html: body }} />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.__APOLLO_STATE__=${JSON.stringify(state).replace(
@@ -46,4 +46,4 @@ Html.propTypes = {
   state: PropTypes.string.isRequired,
 };
 
-export default PropTypes;
+export default Html;
