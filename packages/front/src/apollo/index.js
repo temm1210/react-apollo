@@ -5,7 +5,6 @@ import cache from "./cache";
 import link, { httpLink } from "./links";
 import resolvers from "./resolvers";
 import typeDefs from "./types";
-
 // additional
 import { jwt_decode, loginOperation } from "./constant";
 
