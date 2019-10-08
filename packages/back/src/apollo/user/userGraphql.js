@@ -5,7 +5,6 @@ export default `
     ${schemaName.query.GET_USER_BY_EMAIL}(email: String!): User
     ${schemaName.query.GET_NEW_TOKEN}(email: String!): RefetchNewToken!
     ${schemaName.query.GET_USER_BY_UESRNAME}(username: String!): Boolean
-    test: String!
   }
 
   type Mutation {
