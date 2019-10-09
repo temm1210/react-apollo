@@ -6,14 +6,15 @@ import { loadableReady } from "@loadable/component";
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import apolloClient, { init } from "apollo";
-
 import App from "./App";
+
+const client = apolloClient();
 
 init();
 
 const Root = () => {
   return (
-    <ApolloProvider client={apolloClient}>
+    <ApolloProvider client={client}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
