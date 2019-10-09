@@ -30,10 +30,9 @@ function Html({ content, tags, styled, state }) {
             __html: `window.__APOLLO_STATE__=${JSON.stringify(state).replace(
               /</g,
               "\\u003c",
-            )}`,
+            )};`,
           }}
         />
-        <script />
       </body>
     </html>
   );
