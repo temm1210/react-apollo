@@ -35,8 +35,8 @@ const ButtonContainer = styled(FlexContainer)``;
 
 const CommentListContainer = styled(FlexContainer)``;
 
-const value = `<p><span class="ql-size-small">profile   username <span class="ql-size-small" style="color: rgb(187, 187, 187);">Jul 4,9 min read</span></span></p><br><strong class="ql-size-huge">Title</strong>`;
-const value2 = `<p><span class="ql-size-small">profile   username <span class="ql-size-small" style="color: rgb(187, 187, 187);">Jul 4,9 min read</span></span></p><br><p>wiejfioejwafwifojaewifjaewjfoiajfoijfewijf.</p><p>ajsfdiasjmfweoifjawijfiojewafioejaoijewafoma jawefijeiowajfioajw jidsafj oijasdfoi jaofweo jaewfm awefm amsdfoimawefimawefmiwe mmfeai wmfm aweifm ewmfi aewmfimawmefi mldsf ewfm malew.</p>`;
+const value = `<p><span class="ql-size-small">profile   username <span class="ql-size-small" style="color: rgb(187, 187, 187);">Jul 4,9 min read</span></span></p><br><strong class="ql-size-huge">댓글준비중</strong>`;
+const value2 = `<p><span class="ql-size-small">profile   username <span class="ql-size-small" style="color: rgb(187, 187, 187);">Jul 4,9 min read</span></span></p><br><p>댓글준비중</p>`;
 function BoardComment() {
   useEffect(() => {
     styleModify("#comment-editor", {
@@ -59,7 +59,7 @@ function BoardComment() {
       <CommentContainer>
         <UserInfoContainer>
           <Text bold color="#008E00">
-            Dami
+            STW
           </Text>
           <Text color="rgba(0,0,0,.54)">Jul 4, 2018</Text>
         </UserInfoContainer>
