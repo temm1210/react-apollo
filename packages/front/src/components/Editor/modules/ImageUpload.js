@@ -3,7 +3,6 @@
  * and paste images from clipboard (Works on Chrome, Firefox, Edge, not on Safari)
  * @see https://quilljs.com/blog/building-a-custom-module/
  */
-import { Quill } from "react-quill"; // ES6
 
 export default class ImageUpload {
   /**
@@ -12,6 +11,7 @@ export default class ImageUpload {
    * @param {Object} options
    */
   constructor(quill, options = {}) {
+    console.log("test");
     // save the quill reference
     this.quill = quill;
     // save options
@@ -86,27 +86,31 @@ export default class ImageUpload {
    * @param {String} dataUrl  The base64-encoded image URI
    */
   insert = dataUrl => {
-    const Delta = Quill.import("delta");
-    const imgElement = document.createElement("img");
+    if (typeof document !== "undefined") {
+      // eslint-disable-next-line global-require
+      const { Quill } = require("react-quill");
+      const Delta = Quill.import("delta");
+      const imgElement = document.createElement("img");
 
-    imgElement.setAttribute("src", dataUrl);
+      imgElement.setAttribute("src", dataUrl);
 
-    this.quill.updateContents(
-      new Delta()
-        .retain(this.quill.getSelection().index)
-        .insert({ image: dataUrl })
-        .insert("\n"),
-      //   new Delta({ insert: { image: dataUrl } }, { insert: "  " }),
-    );
+      this.quill.updateContents(
+        new Delta()
+          .retain(this.quill.getSelection().index)
+          .insert({ image: dataUrl })
+          .insert("\n"),
+        //   new Delta({ insert: { image: dataUrl } }, { insert: "  " }),
+      );
 
-    this.quill.setSelection({
-      index: this.quill.getSelection().index + 2,
-      length: 0,
-    });
+      this.quill.setSelection({
+        index: this.quill.getSelection().index + 2,
+        length: 0,
+      });
 
-    setTimeout(() => {
-      document.querySelector(".ql-container").scrollTo(0, 200000);
-    }, 300);
+      setTimeout(() => {
+        document.querySelector(".ql-container").scrollTo(0, 200000);
+      }, 300);
+    }
     // this.quill.insertEmbed(range.index, "image", dataUrl, "user");
     // this.quill.setContents([{ insert: "\n" }]);
   };

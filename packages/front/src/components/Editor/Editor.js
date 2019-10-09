@@ -1,14 +1,13 @@
+/* eslint-disable global-require */
 import React, { useRef, useEffect } from "react";
-import ReactQuill, { Quill } from "react-quill";
 import PropTypes from "prop-types";
-import ImageResize from "quill-image-resize-module";
+// import ImageResize from "quill-image-resize-module";
 import ImageUpload from "./modules/ImageUpload";
 
 import "react-quill/dist/quill.snow.css";
 import "./Editor.css";
 
-Quill.register("modules/imageUpload", ImageUpload);
-Quill.register("modules/imageResize", ImageResize);
+// Quill.register("modules/imageResize", ImageResize);
 
 // Editor 툴바
 const toolbar = [
@@ -40,15 +39,18 @@ const imageUpload = {
 
 function Editor({ id, value, focus, readOnly, onChange }) {
   const myEditor = useRef(null);
+  let ReactQuill = null;
 
+  if (typeof document !== "undefined") {
+    ReactQuill = require("react-quill");
+    const Quill = ReactQuill.Quill;
+    Quill.register("modules/imageUpload", ImageUpload);
+  }
   useEffect(() => {
     if (focus) myEditor.current.focus();
-
-    const element = document.querySelector(".ql-container");
-    console.log("element.scrollTop:", element.scrollTop);
   });
 
-  return (
+  return typeof document !== "undefined" && ReactQuill ? (
     <ReactQuill
       id={id}
       className="myEditor"
@@ -66,12 +68,12 @@ function Editor({ id, value, focus, readOnly, onChange }) {
       modules={{
         toolbar,
         imageUpload,
-        imageResize: {
-          displaySize: true,
-        },
+        // imageResize: {
+        //   displaySize: true,
+        // },
       }}
     />
-  );
+  ) : null;
 }
 
 Editor.defaultProps = {
