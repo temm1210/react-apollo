@@ -5,14 +5,14 @@ import schemaName from "back/src/apollo/user/schemaName";
 const getUserByEmail = schemaName.query.GET_USER_BY_EMAIL;
 const getNewToken = schemaName.query.GET_NEW_TOKEN;
 
-const isWindow = typeof sessionStorage !== "undefined";
+const isWindow = typeof window !== "undefined";
 
 export const jwt_token_type = "Bearer";
 export const jwt_decode =
   isWindow && jwt.decode(sessionStorage.getItem("access_token"));
 
 // 페이지가 새로 로드될때(새로고침등..) 실행될 operation
-export const loginOperation = {
+export const loginOperation = isWindow && {
   name: getUserByEmail,
   operation: {
     query: gql`
@@ -33,7 +33,7 @@ export const loginOperation = {
 };
 
 // access token 만료시 사용할 operation
-export const getTokenOperation = {
+export const getTokenOperation = isWindow && {
   name: getNewToken,
   operation: {
     query: gql`
@@ -47,9 +47,9 @@ export const getTokenOperation = {
     variables: { email: jwt_decode && jwt_decode.data },
     extensions: {
       grant_type: "refresh_token",
-      refresh_token:
-        isWindow &&
-        `${jwt_token_type} ${sessionStorage.getItem("refresh_token")}`,
+      refresh_token: `${jwt_token_type} ${sessionStorage.getItem(
+        "refresh_token",
+      )}`,
       // client_id: "client_react",
       // client_secret: "my_secret",
     },
