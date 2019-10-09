@@ -86,12 +86,9 @@ const BoardWriteContainer = withRouter(({ id, history, mode }) => {
             })
           : await insertBoardMutation({ variables: queryData });
 
-      const insertId = data && data[insertBoard];
-
-      console.log("mode:", mode);
-      console.log("insertId:", insertId);
-      if (insertId) {
-        history.push(`/board/${insertId}`);
+      const boardId = (data && data[insertBoard]) || id;
+      if (boardId) {
+        history.push(`/board/${boardId}`);
       }
     }
   });
