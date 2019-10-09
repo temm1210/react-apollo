@@ -1,6 +1,5 @@
 import { ApolloClient } from "apollo-client";
 import { execute } from "apollo-link";
-
 import cache from "./cache";
 import link, { httpLink } from "./links";
 import resolvers from "./resolvers";
@@ -12,8 +11,7 @@ import { jwt_decode, loginOperation } from "./constant";
 // server에서 에러를 throw하면 errorLink가 실행
 // errorLink에서 에러후처리후 return forward를 하면 error발생전
 // operation이 재실행됨. (이때 다시 authLink를 실행하지 않음)
-
-export const init = () => {
+export function init() {
   if (jwt_decode) {
     execute(httpLink, loginOperation.operation).subscribe({
       next: ({ data }) => {
@@ -28,11 +26,18 @@ export const init = () => {
       },
     });
   }
-};
+}
 
-export default new ApolloClient({
-  typeDefs,
-  resolvers,
-  cache,
-  link,
+cache.writeData({
+  data: {
+    user: null,
+  },
 });
+
+export default () =>
+  new ApolloClient({
+    cache,
+    typeDefs,
+    resolvers,
+    link,
+  });
