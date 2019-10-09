@@ -11,7 +11,6 @@ export default class ImageUpload {
    * @param {Object} options
    */
   constructor(quill, options = {}) {
-    console.log("test");
     // save the quill reference
     this.quill = quill;
     // save options
