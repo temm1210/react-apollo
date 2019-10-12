@@ -15,13 +15,13 @@ This project uses Yarn Workspace.
 ### 실행테스트
 
 1. `yarn install`
-2. back폴더 아래 .env.example 복사후 .env파일 생성 -> 붙여넣기
+2. back폴더 아래 .env파일 생성후 .env.example 내용 복사  -> 붙여넣기
 
 - 개발모드
      1. `yarn workspace front start`
      2. db테이블 초기화가 필요할시 `yarn workspace back init-table` 다음 `yarn workspace back start`
 
-- 실행모드
+- 프로덕션모드
      1. `yarn workspace front build`
      2. `yarn workspace front build-ssr`
      3. `yarn workspace back start`
