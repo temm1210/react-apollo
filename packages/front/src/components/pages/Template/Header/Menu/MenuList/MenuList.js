@@ -46,7 +46,7 @@ const MenuText = styled(Text)`
 function MenuList({ username }) {
   const isWindow = typeof sessionStorage !== "undefined";
   const { dispatch } = useContext(Context);
-  const isLogin = (isWindow && sessionStorage.getItem("access_token")) || false;
+  // const isLogin = (isWindow && sessionStorage.getItem("access_token")) || false;
 
   const handleClickLogin = () => {
     dispatch({ type: types.OPEN_LOG_MODAL });
@@ -60,6 +60,7 @@ function MenuList({ username }) {
     if (typeof window !== "undefined" && isWindow) {
       sessionStorage.removeItem("access_token");
       sessionStorage.removeItem("refresh_token");
+      sessionStorage.removeItem("username");
       window.location.reload();
     }
   };
@@ -75,7 +76,7 @@ function MenuList({ username }) {
         </MenuLink>
       </LinkWrapper>
 
-      {isLogin ? (
+      {username ? (
         <>
           <LinkWrapper>
             <MenuLink exact as="div" onClick={handleSignout}>
