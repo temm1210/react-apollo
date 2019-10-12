@@ -14,16 +14,16 @@ This project uses Yarn Workspace.
 `
 ### 실행테스트
 
-- `yarn install`
-- back폴더 아래 .env.example 복사후 .env파일 생성 -> 붙여넣기
+1. `yarn install`
+2. back폴더 아래 .env.example 복사후 .env파일 생성 -> 붙여넣기
 
-1. 개발모드
-     - `yarn workspace front start`
-     - db테이블 초기화가 필요할시 `yarn workspace back init-table` 다음 `yarn workspace back start`
+- 개발모드
+     1. `yarn workspace front start`
+     2. db테이블 초기화가 필요할시 `yarn workspace back init-table` 다음 `yarn workspace back start`
 
-2. 실행모드
-     - `yarn workspace front build`
-     - `yarn workspace front build-ssr`
-     - `yarn workspace back start`
+- 실행모드
+     1. `yarn workspace front build`
+     2. `yarn workspace front build-ssr`
+     3. `yarn workspace back start`
 
 ### 도커(준비중....)
