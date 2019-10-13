@@ -11,7 +11,7 @@ This project uses Yarn Workspace.
 
 ### API
 -   데이터 정보를 주고받을땐 graphql, 파일같은 자원을 주고받을땐 rest api 사용.
-`
+
 ### 실행테스트
 
 1. `yarn install`
