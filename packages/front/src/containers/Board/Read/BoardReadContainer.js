@@ -13,11 +13,12 @@ const BoardReadContainer = withRouter(({ id, history }) => {
     GqlTypes.GET_BOARD,
     {
       variables: { id: idNumber },
+      fetchPolicy: "network-only",
     },
   );
 
   // 현재 로그인된 유저 닉네임 가져오기
-  const { data: getUsernameQueryData } = useQuery(GqlTypes.GET_USERNAME);
+  // const { data: getUsernameQueryData } = useQuery(GqlTypes.GET_USERNAME);
 
   // 삭제버튼을 클릭시 작동하는 쿼리
   const [deleteBoard] = useMutation(GqlTypes.DELETE_BOARD, {
@@ -35,10 +36,15 @@ const BoardReadContainer = withRouter(({ id, history }) => {
   const board = getBoardQueryData && getBoardQueryData[getBoardQuery];
 
   // 현재 로그인된 username 가져오기
-  const current_username =
-    getUsernameQueryData &&
-    getUsernameQueryData.user &&
-    getUsernameQueryData.user.username;
+
+  let current_username = null;
+  if (typeof window !== "undefined") {
+    current_username =
+      // (getUsernameQueryData &&
+      //   getUsernameQueryData.user &&
+      //   getUsernameQueryData.user.username) ||
+      sessionStorage.getItem("username");
+  }
 
   // 가져온 board데이터는 memorized
   const boardMemo = useMemo(
