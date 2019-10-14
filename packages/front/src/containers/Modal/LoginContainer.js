@@ -39,6 +39,7 @@ function LoginModalContainer({ onClose }) {
           if (typeof window !== "undefined" && isWindow) {
             sessionStorage.setItem("access_token", user.access_token);
             sessionStorage.setItem("refresh_token", user.refresh_token);
+            sessionStorage.setItem("username", user.username);
             window.location.reload();
           }
         }
