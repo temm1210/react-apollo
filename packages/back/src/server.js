@@ -1,12 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
-import ssr from "dist/server-ssr";
+// import ssr from "dist/server-ssr";
 import path from "path";
 // import cors from "cors";
-import AplloServer from "./apollo";
+import ApolloServerFactory from "./apollo";
 import { imageUpload } from "./restApi";
 
 const app = express();
+const ApolloServer = ApolloServerFactory();
 
 // express middleware
 // app.use(cors());
@@ -19,16 +20,20 @@ app.use(
   }),
 );
 
-// router(rest api)
 app.use("/upload", imageUpload);
 
 // apollo server add middleware
-AplloServer.applyMiddleware({ app, path: "/api" });
+ApolloServer.applyMiddleware({ app, path: "/api" });
 
-app.use(ssr);
+if (process.env.NODE_ENV.trim() === "production") {
+  // eslint-disable-next-line global-require
+  const ssr = require("dist/server-ssr").default;
+  app.use(ssr);
+}
+
 // apollo server start
 app.listen({ port: process.env.PORT }, () => {
   console.log(
-    `🚀 Server ready at http://localhost:${process.env.PORT}${AplloServer.graphqlPath}`,
+    `🚀 Server ready at http://localhost:${process.env.PORT}${ApolloServer.graphqlPath}`,
   );
 });
