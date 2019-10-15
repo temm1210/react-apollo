@@ -65,7 +65,7 @@ export default {
       { dataSources: { userAPI } },
     ) => {
       let i = 0;
-      while (i < 700000000) {
+      while (i < 500000000) {
         i += 1;
       }
       let userData = user;
@@ -123,7 +123,7 @@ export default {
       { dataSources: { userAPI } },
     ) => {
       let i = 0;
-      while (i < 700000000) {
+      while (i < 500000000) {
         i += 1;
       }
       const user = await userAPI.getUser({ [userFields.EMAIL]: email });
