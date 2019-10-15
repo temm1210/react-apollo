@@ -1,31 +1,23 @@
-import pool from "../mySql";
 import queries from "./iniQueries";
 
-(async function initTable() {
+async function createTable(pool) {
   try {
     const conn = await pool.getConnection(async connection => connection);
-    try {
-      console.log(" ---- Creating tables start ---- ");
-
-      // 비동기 순차실행
-      const promise = queries.reduce((prev, current) => {
-        return prev.then(() => {
-          return conn.query(current);
-        });
-      }, Promise.resolve());
-
-      // 순차실행이 끝나고 난 후 마지막 실행되어야 할 로직
-      promise.then(() => {
-        console.log(" ---- All tables are created ---- ");
-        conn.release();
-        process.exit(0);
+    // 비동기 순차실행
+    const promise = queries.reduce((prev, current) => {
+      return prev.then(() => {
+        return conn.query(current);
       });
-    } catch (error) {
-      console.error(`Query Error:::${error}`);
-      throw error;
-    }
-  } catch (err) {
-    console.error(`DB Error:::::${err}`);
-    throw err;
+    }, Promise.resolve());
+
+    // 순차실행이 끝나고 난 후 마지막 실행되어야 할 로직
+    return promise.then(() => {
+      conn.release();
+      // process.exit(0);
+    });
+  } catch (error) {
+    throw error;
   }
-})();
+}
+
+export default createTable;
