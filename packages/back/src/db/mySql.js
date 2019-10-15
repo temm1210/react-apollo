@@ -1,4 +1,5 @@
 import mysql from "mysql2/promise";
+import createTable from "db/initQuery/makeTable";
 
 const pool = mysql.createPool({
   connectionLimit: 10,
@@ -8,5 +9,7 @@ const pool = mysql.createPool({
   password: process.env.db_password,
   database: process.env.db_database,
 });
+
+createTable(pool);
 
 export default pool;
