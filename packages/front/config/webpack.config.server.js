@@ -15,7 +15,8 @@ module.exports = {
   mode: "production",
   output: {
     path: paths.ssrBuild,
-    libraryTarget: "commonjs2",
+    // libraryTarget: "commonjs2",
+    libraryTarget: "commonjs",
     filename: "server-ssr.js",
     chunkFilename: "js/[name].chunk.js",
     // publicPath: paths.servedPath // 정적 파일이 제공 될 경로
