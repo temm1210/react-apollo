@@ -19,7 +19,7 @@ This project uses Yarn Workspace.
 
 - 개발모드
      1. `yarn workspace front start`
-     2. db테이블 초기화가 필요할시 `yarn workspace back init-table` 다음 `yarn workspace back start`
+     2. `yarn workspace back dev`
 
 - 프로덕션모드
      1. `yarn workspace front build`
