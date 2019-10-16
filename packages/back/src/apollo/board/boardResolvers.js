@@ -11,11 +11,6 @@ export default {
       const boardList = await boardAPI.getBoardList(listSize, cursor);
       const nextCursor = cursor ? cursor + listSize : listSize;
 
-      // console.log("data:", {
-      //   cursor: nextCursor,
-      //   hasMore: boardList.length === listSize,
-      //   board: boardList,
-      // });
       return {
         cursor: nextCursor,
         hasMore: boardList.length === listSize,
