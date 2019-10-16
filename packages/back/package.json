@@ -31,8 +31,8 @@
     "sharp": "^0.23.0"
   },
   "scripts": {
-    "dev": "set NODE_ENV=development && nodemon --exec babel-node -r node_modules/dotenv/config src/server.js",
+    "dev": "set NODE_ENV=development && nodemon --exec babel-node -r node_modules/dotenv/config src/server.js dotenv_config_path=../../.env",
     "init-table": "babel-node -r node_modules/dotenv/config src/db/initQuery/makeTable.js",
-    "start": "set NODE_ENV=production && nodemon --exec babel-node -r node_modules/dotenv/config src/server.js"
+    "start": "set NODE_ENV=production && nodemon --exec babel-node -r node_modules/dotenv/config src/server.js dotenv_config_path=../../.env"
   }
 }
