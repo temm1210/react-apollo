@@ -33,7 +33,5 @@ if (process.env.NODE_ENV.trim() === "production") {
 
 // apollo server start
 app.listen({ port: process.env.PORT }, () => {
-  console.log(
-    `🚀 Server ready at http://localhost:${process.env.PORT}${ApolloServer.graphqlPath}`,
-  );
+  console.log(`🚀 Server ready at http://localhost:${process.env.PORT}`);
 });
