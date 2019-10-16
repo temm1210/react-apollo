@@ -30,7 +30,7 @@ export default class BoardDB extends DBApi {
 
   async deleteBoard(id) {
     const result = await this.query(
-      `DELETE FROM board WHERE ${boardFields.ID} = ?`,
+      `DELETE FROM BOARD WHERE ${boardFields.ID} = ?`,
       [id],
     );
     return result;
