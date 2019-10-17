@@ -103,7 +103,6 @@ export default {
      * @returns {Boolean} 인증이 제대로 보내졌다면 true, 아니면 false
      */
     [resolver.mutation.IS_MATCH_AUTH_KEY]: (_, { authKey }) => {
-      console.log("authKey:", authKey);
       if (authKey === generatedAuthKey) {
         generatedAuthKey = null;
         return true;
