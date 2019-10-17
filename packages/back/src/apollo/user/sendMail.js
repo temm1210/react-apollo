@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport({
 
 export default async ({ email, authKey }) => {
   const mailOptions = {
-    from: `${process.env.naver_user}@naver.com`,
+    from: `StwPortfolio <${process.env.naver_user}@naver.com>`,
     to: email,
     subject: "Portfolio site Authentication Key for sign up",
     text: `<div>This is email for Authentication. Copy and Paste this key on Portfolio site
