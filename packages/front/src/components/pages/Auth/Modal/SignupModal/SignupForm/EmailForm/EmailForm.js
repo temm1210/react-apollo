@@ -94,7 +94,7 @@ function EmailForm({
                 isCodeAuth: !authCodeInput.errors.authCodeValidation,
               });
             }
-            if (typeof window !== "undefined")
+            if (typeof window !== "undefined" && !isMatch)
               window.alert("인증번호가 일치하지 않습니다. 다시 확인해주세요");
           }
           break;
