@@ -23,9 +23,7 @@ export default async ({ email, authKey }) => {
     from: `StwPortfolio <${process.env.naver_user}@naver.com>`,
     to: email,
     subject: "Portfolio site Authentication Key for sign up",
-    text: `<div>This is email for Authentication. Copy and Paste this key on Portfolio site
-    <div><h2 style={{color:"blue"}}>${authKey}</h2></div>
-  </div>`,
+    text: `authKey: ${authKey}`,
   };
 
   return transporter.sendMail(mailOptions);
