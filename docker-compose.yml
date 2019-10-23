@@ -1,0 +1,50 @@
+version: "3"
+services:
+  app:
+    container_name: stw-app
+    image: stw-app:1.0
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4000:${PORT}
+    networks:
+      - stw
+    depends_on:
+      - stwDB
+    # volumes:
+    #   - /home/stw/Project/react-apollo/packages:/react-apollo/packages
+    command:
+      [
+        "./wait-for-it.sh",
+        "stwDB:3306",
+        "--",
+        "yarn",
+        "workspace",
+        "back",
+        "start",
+      ]
+
+  stwDB:
+    container_name: stw-db
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - stw
+    env_file: .env
+    expose:
+      - ${db_port}
+    ports:
+      - 3306:${db_port}
+    volumes:
+      - /home/stw/Project/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${db_password}
+      # MYSQL_PASSWORD: ${db_password}
+      MYSQL_DATABASE: ${db_database}
+      # MYSQL_USER: ${db_user}
+
+networks:
+  stw:
