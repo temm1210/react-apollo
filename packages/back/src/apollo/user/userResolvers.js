@@ -145,7 +145,7 @@ export default {
       }
 
       // 이메일에 해당하는 비밀번호와 틀릴시 return null
-      console.log("login fail");
+      // console.log("login fail");
       return null;
     },
   },

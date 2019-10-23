@@ -37,13 +37,10 @@ function EmailFormContainer({ onSubmit }) {
 
   // 이메일 중복체크
   const onSubmitEmailDuplicated = async email => {
-    console.log("email:", email);
     const { data } = await apolloClient.query({
       query: GET_USER_BY_EMAIL,
       variables: { email },
     });
-
-    console.log("data[getUserByEmail]:", data[getUserByEmail]);
     return data[getUserByEmail] && !!data[getUserByEmail].email;
   };
 
