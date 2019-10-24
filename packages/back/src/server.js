@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-// import ssr from "dist/server-ssr";
 import path from "path";
 // import cors from "cors";
 import ApolloServerFactory from "./apollo";
@@ -9,7 +8,6 @@ import { imageUpload } from "./restApi";
 const app = express();
 const ApolloServer = ApolloServerFactory();
 
-// express middleware
 // app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
