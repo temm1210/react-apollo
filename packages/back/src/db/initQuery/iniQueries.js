@@ -1,6 +1,6 @@
 import { userFields, boardFields } from "../schemas";
 
-const createUserSql = `create table IF NOT EXISTS USER(
+const createUserTable = `create table IF NOT EXISTS USER(
   ${userFields.EMAIL} varchar(255) primary key,
   ${userFields.PASSWORD} varchar(255) not null,
   ${userFields.USERNAME} varchar(255) unique not null,
@@ -11,7 +11,7 @@ const createUserSql = `create table IF NOT EXISTS USER(
   ${userFields.UPDATE_DATE} DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE current_timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;`;
 
-const createBoardSql = `create table IF NOT EXISTS BOARD(
+const createBoardTable = `create table IF NOT EXISTS BOARD(
   ${boardFields.ID} INT unsigned PRIMARY KEY AUTO_INCREMENT,
   ${boardFields.USERNAME} VARCHAR(255) NOT NULL,
   ${boardFields.TITLE} VARCHAR(255) NOT NULL,
@@ -25,4 +25,4 @@ const createBoardSql = `create table IF NOT EXISTS BOARD(
   FOREIGN KEY(${boardFields.USERNAME}) REFERENCES USER(${userFields.USERNAME}) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;`;
 
-export default [createUserSql, createBoardSql];
+export default [createUserTable, createBoardTable];
