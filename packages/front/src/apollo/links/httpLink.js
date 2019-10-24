@@ -1,6 +1,6 @@
 import { HttpLink } from "apollo-link-http";
 
 export default new HttpLink({
-  uri: "https://stwport.herokuapp.com/api",
+  uri: "http://localhost:4000/api",
   includeExtensions: true,
 });

@@ -22,7 +22,7 @@ const toolbar = [
 
 // Editor 이미지 업로드 로직
 const imageUpload = {
-  url: "https://stwport.herokuapp.com/upload", // server url. If the url is empty then the base64 returns
+  url: "http://localhost:4000/upload", // server url. If the url is empty then the base64 returns
   method: "POST", // change query method, default 'POST'
   name: "editorImage", // custom form name
   withCredentials: false, // withCredentials
