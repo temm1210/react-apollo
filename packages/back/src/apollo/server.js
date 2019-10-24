@@ -18,11 +18,11 @@ export const schema = makeExecutableSchema({
 export default () => {
   const userAPI = new UserAPI(pool);
   const boardAPI = new BoardAPI(pool);
-
   // boardAPI.testBoard();
 
   return new ApolloServer({
     schema,
+    introspection: true,
     dataSources: () => ({
       userAPI,
       boardAPI,

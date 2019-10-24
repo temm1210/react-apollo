@@ -9,7 +9,7 @@ const createUserSql = `create table IF NOT EXISTS USER(
   ${userFields.REFRESH_TOKEN} varchar(255),
   ${userFields.CREATE_DATE} DATETIME DEFAULT CURRENT_TIMESTAMP,
   ${userFields.UPDATE_DATE} DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE current_timestamp
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;`;
 
 const createBoardSql = `create table IF NOT EXISTS BOARD(
   ${boardFields.ID} INT unsigned PRIMARY KEY AUTO_INCREMENT,
@@ -23,6 +23,6 @@ const createBoardSql = `create table IF NOT EXISTS BOARD(
   ${boardFields.UPDATE_DATE} DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE current_timestamp,
   
   FOREIGN KEY(${boardFields.USERNAME}) REFERENCES USER(${userFields.USERNAME}) ON UPDATE CASCADE ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;`;
 
 export default [createUserSql, createBoardSql];

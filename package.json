@@ -4,6 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "author": "STW",
+  "scripts": {
+    "start": "yarn workspace back start",
+    "build": "yarn workspace front build && yarn workspace front build-ssr"
+  },
   "workspaces": {
     "packages": [
       "packages/**"
@@ -13,5 +17,8 @@
       "**/react-scripts/**"
     ]
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": "10.x"
+  }
 }

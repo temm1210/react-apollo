@@ -42,7 +42,7 @@ router.post("/", upload.single("editorImage"), async (req, res) => {
         fs.unlinkSync(req.file.path);
 
         res.json({
-          url: `http://localhost:${process.env.PORT}/${resizeFileName}`,
+          url: `https://stwport.herokuapp.com/${resizeFileName}`,
         });
       });
   } catch (err) {
