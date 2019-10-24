@@ -22,8 +22,6 @@ const upload = multer({ storage });
 const router = express.Router();
 
 router.post("/", upload.single("editorImage"), async (req, res) => {
-  // console.log("파일이름:", req.file);
-
   // image의 메타데이터중 width값을 가져옴
   const metaReader = sharp(req.file.path);
   const { width } = await metaReader.metadata();
@@ -46,7 +44,7 @@ router.post("/", upload.single("editorImage"), async (req, res) => {
         });
       });
   } catch (err) {
-    console.error("ERROR:", err);
+    throw new Error("Image upload Error");
   }
 });
 
