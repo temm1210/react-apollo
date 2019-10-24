@@ -55,8 +55,7 @@ export default () => {
         return { user };
       } catch (error) {
         if (error.name === "TokenExpiredError") {
-          console.log("EXPIRED!!!!!");
-          throw new AuthenticationError("Token expired");
+          throw new AuthenticationError("Access Token expired.");
         }
       }
     },
