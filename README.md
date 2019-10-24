@@ -19,12 +19,12 @@ This project uses Yarn Workspace.
 1. `yarn install`
 2. 루트에 .env파일 생성후 .env.example 내용 복사 -> 붙여넣은후 채우기
 
-- 개발모드
+- 개발
 
   1.  `yarn workspace front start`
   2.  `yarn workspace back dev`
 
-- 프로덕션모드
+- 프로덕션
   1.  `yarn build`
   2.  `yarn start`
 
