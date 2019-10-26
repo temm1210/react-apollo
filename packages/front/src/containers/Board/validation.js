@@ -1,1 +1,1 @@
-export const titleValidation = passwd => passwd && !(passwd.length > 6);
+export const titleValidation = title => !title || title.length < 6;

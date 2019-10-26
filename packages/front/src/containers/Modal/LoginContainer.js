@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context, types } from "components/Context";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import PropTypes from "prop-types";
@@ -27,7 +28,8 @@ const LOGIN_MUTATION = gql`
 `;
 
 function LoginModalContainer({ onClose }) {
-  const isWindow = typeof sessionStorage !== "undefined";
+  const isWindow = typeof window !== "undefined";
+  const { dispatch } = useContext(Context);
   const [loginMutation, { loading, error, data }] = useMutation(
     LOGIN_MUTATION,
     {
@@ -35,13 +37,12 @@ function LoginModalContainer({ onClose }) {
       // 오브젝트
       onCompleted: queryResult => {
         const user = queryResult && queryResult[userLogin];
-        if (user) {
-          if (typeof window !== "undefined" && isWindow) {
-            sessionStorage.setItem("access_token", user.access_token);
-            sessionStorage.setItem("refresh_token", user.refresh_token);
-            sessionStorage.setItem("username", user.username);
-            window.location.reload();
-          }
+        if (user && isWindow) {
+          sessionStorage.setItem("access_token", user.access_token);
+          sessionStorage.setItem("refresh_token", user.refresh_token);
+          sessionStorage.setItem("username", user.username);
+          // window.location.reload();
+          dispatch({ type: types.CLOSE_MODAL });
         }
       },
       // update가 먼저 일어나고 onCOmpleted가 일어남
