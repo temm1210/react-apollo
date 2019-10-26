@@ -7,11 +7,11 @@ function Html({ content, tags, styled, state }) {
 
   const head = `
         <meta charset="utf-8" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/logo.png" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <link rel="manifest" href="/manifest.json" />
-        <title>React App</title>
+        <title>Stwapollo</title>
         ${tags.styles}
         ${tags.links}
         ${styles}
