@@ -17,6 +17,16 @@ const NormalText = styled.span`
       fontSize: (props.responsive && props.responsive.tablet) || props.size,
     })}
 
+  ${props =>
+    props.theme.mobileL({
+      fontSize: (props.responsive && props.responsive.mobileL) || props.size,
+    })}
+
+  ${props =>
+    props.theme.mobileM({
+      fontSize: (props.responsive && props.responsive.mobileM) || props.size,
+    })}
+
   ${props => (props.link ? "&:hover {color: rgba(0, 0, 0, 0.5)" : null)};
 `; // Text
 
