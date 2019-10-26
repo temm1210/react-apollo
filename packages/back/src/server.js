@@ -1,14 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
-// import cors from "cors";
+import cors from "cors";
 import ApolloServerFactory from "./apollo";
 import { imageUpload } from "./restApi";
 
 const app = express();
 const ApolloServer = ApolloServerFactory();
 
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, "images")));
