@@ -5,7 +5,7 @@ export default {
   Query: {
     [resolver.query.GET_BOARD_LIST]: async (
       _,
-      { listSize = 4, cursor = 0 },
+      { listSize = 6, cursor = 0 },
       { dataSources: { boardAPI } },
     ) => {
       const boardList = await boardAPI.getBoardList(listSize, cursor);
