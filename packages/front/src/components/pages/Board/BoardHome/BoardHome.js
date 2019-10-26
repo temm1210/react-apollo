@@ -16,6 +16,7 @@ const Container = styled(FlexContainer)`
 
 const BoardContainer = styled(FlexContainer)`
   max-width: 900px;
+  width: 100%;
 `; // BoardContainer
 
 const ButtonWrapper = styled.div`
