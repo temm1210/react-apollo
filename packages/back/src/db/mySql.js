@@ -3,6 +3,7 @@ import createTable from "db/initQuery/makeTable";
 
 const pool = mysql.createPool({
   connectionLimit: 10,
+  connectTimeout: 20000,
   host: process.env.db_host,
   user: process.env.db_user,
   port: Number.parseInt(process.env.db_port, 10),
