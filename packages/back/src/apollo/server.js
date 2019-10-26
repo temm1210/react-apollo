@@ -22,7 +22,6 @@ export default () => {
 
   return new ApolloServer({
     schema,
-    introspection: true,
     dataSources: () => ({
       userAPI,
       boardAPI,
