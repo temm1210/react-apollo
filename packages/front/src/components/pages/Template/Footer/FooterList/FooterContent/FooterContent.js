@@ -30,10 +30,6 @@ const footerContent = [
     id: 7,
     text: "MySql",
   },
-  {
-    id: 8,
-    text: "Kafka",
-  },
 ];
 
 function FooterContent() {
