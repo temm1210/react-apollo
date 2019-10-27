@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Template from "components/pages/Template";
 
 const Container = styled(Template)`
-  margin-top: 5rem;
+  margin-top: 0.5rem;
 `;
 function BoardTemplate({ children }) {
   return (

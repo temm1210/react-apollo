@@ -20,6 +20,8 @@ const LogoLink = styled(Link).attrs(props => ({
 
 const LogoImg = styled.img`
   width: 40px;
+  height: 45px;
+  margin-right: 5px;
 `;
 
 const LogoTitle = styled.span`
