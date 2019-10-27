@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Modal from "components/Modal";
@@ -28,6 +28,9 @@ function BoardWriteModal({
   onClose,
   loading,
 }) {
+  useEffect(() => {
+    return () => onClose();
+  }, []);
   return (
     <Modal onClose={onClose} offTop="10vh" width="100%">
       {loading && <Loading />}
