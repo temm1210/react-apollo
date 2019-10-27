@@ -36,6 +36,7 @@ const ContentText = styled(Text)`
   word-break: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  margin-top: 5px;
   opacity: 0.6;
   -webkit-box-orient: vertical;
 `; // Item
