@@ -24,6 +24,10 @@ const TypedContainer = styled(FlexContainer)`
   color: white;
   font-weight: bold;
   font-size: 3rem;
+  ${props =>
+    props.theme.mobileL({
+      fontSize: "2rem",
+    })}
 `; // TypedContainer
 
 const TypedWrapper = styled.div`
@@ -68,7 +72,12 @@ function TopHome() {
           <TitleContainer justify="center" wrap>
             <LottieContainer id="lottie-test" />
             <TextWrapper>
-              <Text size="3rem" bold color="white">
+              <Text
+                size="3rem"
+                bold
+                responsive={{ mobileL: "2.2rem", mobileM: "1.5rem" }}
+                color="white"
+              >
                 Welcome to Portfolio
               </Text>
             </TextWrapper>
@@ -78,7 +87,11 @@ function TopHome() {
             <TypedWrapper id="typed" />
           </TypedContainer>
           <TextWrapper>
-            <Text size="1.2rem" color="rgba(255,255,255,.9)">
+            <Text
+              size="1.2rem"
+              responsive={{ mobileL: "1rem" }}
+              color="rgba(255,255,255,.9)"
+            >
               You can find useful info and write that you want to share useful
               info
             </Text>
