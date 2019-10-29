@@ -38,7 +38,7 @@ function BoardRead({ board, isSameAutor, id, handleDeleteClick }) {
         ${makeDate(board.create_date)},  ${board.views} read
     </span>
     </span>
-    <br /><br /><br /><br /><br />
+    <br /><br />
     ${board.content}
     `,
     [board],
