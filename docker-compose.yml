@@ -19,7 +19,7 @@ services:
     command:
       [
         "./wait-for-it.sh",
-        "stwDB:3306",
+        "stwDB:${db_port}",
         "--",
         "yarn",
         "workspace",
