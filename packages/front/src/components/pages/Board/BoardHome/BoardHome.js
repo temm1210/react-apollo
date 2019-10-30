@@ -8,7 +8,7 @@ import BoardList, { BoardListTop } from "../BoardList";
 // import BoardAside from "../BoardAside";
 
 const Container = styled(FlexContainer)`
-  margin-top: 10rem;
+  margin-top: 4rem;
   padding: 0 4rem;
 
   ${props => props.theme.laptop({ padding: "0" })};
