@@ -2,22 +2,15 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import path from "path";
-// import fetch from "node-fetch";
-// import { ApolloLink } from "apollo-link";
+import fetch from "node-fetch";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
-// import { ApolloProvider } from "@apollo/react-hooks";
 // ssr시 서버단에서 작동하는 client에는 @apollo/react-common를 사용
 import { ApolloProvider } from "@apollo/react-common";
 import { renderToStringWithData } from "@apollo/react-ssr";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { SchemaLink } from "apollo-link-schema";
-// import { createHttpLink } from "apollo-link-http";
-// import gql from "graphql-tag";
-// import { makeExecutableSchema } from "graphql-tools";
-import { schema } from "back/src/apollo";
-// import { init } from "apollo";
+import { createHttpLink } from "apollo-link-http";
 
 import Html from "./Html";
 import App from "./App";
@@ -29,15 +22,16 @@ const statsFile = path.resolve(
 );
 const extractor = new ChunkExtractor({ statsFile });
 
-// apollo client for ssr
-const client = new ApolloClient({
-  ssrMode: true,
-  link: new SchemaLink({ schema }),
-  cache: new InMemoryCache(),
-});
-
-// ssr fuc
 const frontSsr = async (req, res) => {
+  // apollo client for ssr
+  const client = new ApolloClient({
+    ssrMode: true,
+    link: createHttpLink({
+      uri: "http://localhost:4000/api",
+      fetch,
+    }),
+    cache: new InMemoryCache(),
+  });
   // console.log("1");
   const sheet = new ServerStyleSheet();
 
@@ -55,13 +49,8 @@ const frontSsr = async (req, res) => {
   );
 
   try {
-    // console.log("2");
     const content = await renderToStringWithData(SsrApp);
 
-    // await getDataFromTree(SsrApp);
-
-    // const content = renderToString(SsrApp);
-    // console.log("3");
     const styled = sheet.getStyleTags();
     const state = client.extract();
 
