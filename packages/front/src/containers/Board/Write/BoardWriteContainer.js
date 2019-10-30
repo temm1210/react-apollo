@@ -42,11 +42,14 @@ const BoardWriteContainer = withRouter(({ id, history, mode }) => {
     return { initEditorVal, initTitleVal };
   };
 
-  const {
-    data: {
-      user: { username },
-    },
-  } = useQuery(GqlTypes.USER);
+  // const {
+  //   data: {
+  //     user: { username },
+  //   },
+  // } = useQuery(GqlTypes.USER);
+  const username =
+    // (data && data.user && data.user.username) ||
+    sessionStorage.getItem("username");
 
   const [insertBoardMutation, { loading }] = useMutation(
     GqlTypes.INSERT_BOARD_MUTATION,
@@ -96,14 +99,13 @@ const BoardWriteContainer = withRouter(({ id, history, mode }) => {
   // editor에서 입력된 내용중 img태그의 src속성만 추출한다음 imgSrcs에 대입
   const handleOpenModal = e => {
     e.preventDefault();
+    const isWindow = typeof window !== "undefined";
     const imgSrcRegex = /<img[^>]*src=["']?([^>"']+)["']?[^>]*>/g;
     let matchRegex = imgSrcRegex.exec(editorVal.value);
     const imgsObjArr = [];
 
-    if (!editorVal.value || !matchRegex) {
-      if (typeof window !== "undefined") {
-        window.alert("내용과 최소 한장의 사진이 있어야 합니다.");
-      }
+    if ((!editorVal.value || !matchRegex) && isWindow) {
+      window.alert("내용과 최소 한장의 사진이 있어야 합니다.");
       return;
     }
 
