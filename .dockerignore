@@ -6,8 +6,10 @@ README.md
 
 packages/back/node_modules
 packages/back/.gitignore
+packages/back/src/dist
 packages/back/README.md
 
 packages/front/node_modules
+packages/front/src/build
 packages/front/.gitignore
 packages/front/README.md
