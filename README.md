@@ -33,3 +33,8 @@ This project uses Yarn Workspace.
 1. 루트에 .env파일 생성후 .env.example 내용 복사 -> 붙여넣은후 채우기(db_host값은 docker-compose의 services중 하나인 db이름으 로 해야함)
 2. `docker-compose build`
 3. `docker-compose up`
+
+
+### 기타
+
+heroku특성상 10분간 request가 없으면 수면 상태로 빠지고, 수면상태에 있을때 request가 들어오면 다시 작동하기까지 상당한 시간이 걸린다.
