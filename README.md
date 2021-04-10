@@ -1,6 +1,6 @@
-yarn workspace를 사용하여 mono repo로 구성
+# yarn workspace를 사용하여 mono repo로 구성
 
-server side rendering
+
 
 ### Front
 
@@ -35,6 +35,8 @@ server side rendering
 1. 루트에 .env파일 생성후 .env.example 내용 복사 -> 붙여넣은후 채우기(db_host값은 docker-compose의 services중 하나인 db이름으 로 해야함)
 2. `docker-compose build`
 3. `docker-compose up`
+
+### server side rendering
 
 
 ### 기타
