@@ -1,4 +1,6 @@
-This project uses Yarn Workspace.
+yarn workspace를 사용하여 mono repo로 구성
+
+server side rendering
 
 ### Front
 
