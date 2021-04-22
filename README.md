@@ -1,4 +1,4 @@
-# yarn workspace를 사용하여 mono repo로 구성
+# This project used yarn workspace for mono repo
 
 
 
