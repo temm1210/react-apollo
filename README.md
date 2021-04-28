@@ -13,6 +13,7 @@
 ### API
 
 - 데이터 정보를 주고받을땐 graphql, 파일같은 자원을 주고받을땐 rest api 사용.
+- 인증로직 access token, refresh token사용
 
 ### 실행테스트
 
@@ -41,4 +42,4 @@
 
 ### 기타
 
-heroku특성상 10분간 request가 없으면 수면 상태로 빠지고, 수면상태에 있을때 request가 들어오면 다시 작동하기까지 상당한 시간이 걸린다.
+<s>heroku특성상 10분간 request가 없으면 수면 상태로 빠지고, 수면상태에 있을때 request가 들어오면 다시 작동하기까지 상당한 시간이 걸린다.</s>
