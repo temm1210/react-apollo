@@ -36,7 +36,7 @@
 2. `docker-compose build`
 3. `docker-compose up`
 
-### server side rendering
+### server side rendering 지원 및 프로젝트 mono repo로 구성
 
 
 ### 기타
