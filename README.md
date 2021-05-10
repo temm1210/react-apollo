@@ -47,6 +47,6 @@
 ### 느낀점
 
 - 인증관련로직(access token, refresh token) 특히 `access token`만료시 UX에 방해되지않게 `refresh token`을 사용하여 token재발급 하는 과정이 상당히 까다로웠다. 여기서는 `apollo`내장 기술을 사용하였지만, `apollo`를 사용하지 않을시에는 `socket`나 `rxjs`를 사용하면 좀 더 수월하게 할 수 있을것같다.
-- `apollo cache`를 사용하다보니 `redux`의 역할이 애매모호 해져서 사용하지 않았다. 현재 더 많은 자료를 찾아본 결과 독단적으로 하나의 기술을 사용하거나 client state는 `redux`나 `recoil`, server state는 `react-query` 이렇게 나눠서 사용하는 경우도 있었다. client에서 server state의 규칙이 따로 없을경우네느 rest api만 사용할때는 `react-query`, graphql을 사용할때는 `apollo cache`를 사용하는것도 나쁘지 않아보인다.
+- `apollo cache`를 사용하다보니 `redux`의 역할이 애매모호 해져서 사용하지 않았다. 현재 더 많은 자료를 찾아본 결과 독단적으로 하나의 기술을 사용하거나 client state는 `redux`나 `recoil`, server state는 `react-query` 이렇게 나눠서 사용하는 경우도 있었다. client에서 server state의 규칙이 따로 없을경우에는 rest api만 사용할때는 `react-query`, graphql을 사용할때는 `apollo cache`를 사용하는것도 나쁘지 않아보인다.
 - `mono repo`를 단순히 백과 프론트의 api규칙 공유를 위해서 사용하였는데 프론트내에서 단순 개별 컴포넌트들을 버전관리하면서 사용하는것도 매우 좋아보였다. 다음에는 컴포넌트별로 버전 관리를 해봐야할것같다.
 - 해당프로젝트를 하면서 가장크게 필요성을 느꼈던 부분은 `아키텍쳐`와 `함수형 프로그래밍`이였다. 이 두 부분에 대해 공부좀 많이해야할것 같다.
